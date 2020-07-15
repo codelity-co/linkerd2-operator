@@ -16,7 +16,7 @@ spec:
       containers:
         - name: linkerd2-operator
           # Replace this with the built image name
-          image: gcr.io/codelity-co/linkerd2-operator:v0.1.0
+          image: gcr.io/codelity-co/linkerd2-operator:v0.1.1
           imagePullPolicy: Always
           env:
             - name: WATCH_NAMESPACE
