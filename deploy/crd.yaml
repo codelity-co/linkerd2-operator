@@ -1,0 +1,22 @@
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: linkerd2.charts.helm.k8s.io
+spec:
+  group: charts.helm.k8s.io
+  names:
+    kind: Linkerd2
+    listKind: Linkerd2List
+    plural: linkerd2s
+    singular: linkerd2
+  scope: Namespaced
+  subresources:
+    status: {}
+  validation:
+    openAPIV3Schema:
+      type: object
+      x-kubernetes-preserve-unknown-fields: true
+  versions:
+  - name: v1alpha1
+    served: true
+    storage: true
