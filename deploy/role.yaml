@@ -2,7 +2,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   creationTimestamp: null
-  name: vault-operator
+  name: linkerd2-operator
 rules:
 
 - apiGroups: [""]
@@ -21,9 +21,9 @@ rules:
   resources: ["configmaps", "secrets"]
   verbs: ["get", "watch", "list", "create", "update", "delete", "patch"]
 
-- apiGroups: [""]
-  resources: ["persistentvolumeclaims"]
-  verbs: ["get", "list", "watch", "create", "update", "delete", "patch"]  
+# - apiGroups: [""]
+#   resources: ["persistentvolumeclaims"]
+#   verbs: ["get", "list", "watch", "create", "update", "delete", "patch"]  
 
 - apiGroups: [""]
   resources: ["events"]
@@ -33,16 +33,16 @@ rules:
   resources: ["namespaces"]
   verbs: ["get"]
 
-- apiGroups: ["apps"]
-  resources: ["daemonsets"]
-  verbs: ["get", "list", "watch", "create", "update", "delete", "patch"]
+# - apiGroups: ["apps"]
+#   resources: ["daemonsets"]
+#   verbs: ["get", "list", "watch", "create", "update", "delete", "patch"]
 
 - apiGroups: ["apps"]
   resources: ["deployments"]
   verbs: ["get", "list", "watch", "create", "update", "delete", "patch"]
 
 - apiGroups: ["apps"]
-  resourceNames: ["vault-operator"]
+  resourceNames: ["linkerd2-operator"]
   resources: ["deployments/finalizers"]
   verbs: ["update"]
 
@@ -50,13 +50,13 @@ rules:
   resources: ["replicasets"]
   verbs: ["get", "list", "watch", "create", "update", "delete", "patch"]
 
-- apiGroups: ["apps"]
-  resources: ["statefulsets"]
-  verbs: ["get", "list", "watch", "create", "update", "delete", "patch"]
+# - apiGroups: ["apps"]
+#   resources: ["statefulsets"]
+#   verbs: ["get", "list", "watch", "create", "update", "delete", "patch"]
 
-- apiGroups: ["policy"]
-  resources: ["poddisruptionbudgets"]
-  verbs: ["get", "list", "watch", "create", "update", "delete", "patch"]
+# - apiGroups: ["policy"]
+#   resources: ["poddisruptionbudgets"]
+#   verbs: ["get", "list", "watch", "create", "update", "delete", "patch"]
 
 - apiGroups: ["monitoring.coreos.com"]
   resources: ["servicemonitors"]
